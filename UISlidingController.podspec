@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UISlidingController'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of UISlidingController.'
+  s.version          = '1.0.0'
+  s.summary          = 'UISlidingController pod Use.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: UISlidingController pod Use.
                        DESC
 
-  s.homepage         = 'https://github.com/liuyang11/UISlidingController'
+  s.homepage         = 'https://github.com/sinaliuyang/UISlidingController'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'liuyang11' => 'auger@qi-cloud.com' }
-  s.source           = { :git => 'https://github.com/liuyang11/UISlidingController.git', :tag => s.version.to_s }
+  s.author           = { 'liuyang' => 'augervip@163.com' }
+  s.source           = { :git => 'https://github.com/sinaliuyang/UISlidingController.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'UISlidingController/Classes/**/*'
   
@@ -38,5 +38,6 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+    #第三方框架依赖
   # s.dependency 'AFNetworking', '~> 2.3'
 end

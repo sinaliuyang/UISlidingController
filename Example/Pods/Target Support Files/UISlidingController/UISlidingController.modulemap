@@ -1,0 +1,6 @@
+framework module UISlidingController {
+  umbrella header "UISlidingController-umbrella.h"
+
+  export *
+  module * { export * }
+}

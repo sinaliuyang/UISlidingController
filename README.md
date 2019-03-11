@@ -1,4 +1,5 @@
 # UISlidingController
+<<<<<<< HEAD
 
 [![CI Status](https://img.shields.io/travis/liuyang11/UISlidingController.svg?style=flat)](https://travis-ci.org/liuyang11/UISlidingController)
 [![Version](https://img.shields.io/cocoapods/v/UISlidingController.svg?style=flat)](https://cocoapods.org/pods/UISlidingController)
@@ -27,3 +28,6 @@ liuyang11, auger@qi-cloud.com
 ## License
 
 UISlidingController is available under the MIT license. See the LICENSE file for more info.
+=======
+顶部滑动
+>>>>>>> 1734b825dc7b845969b9bd04d12789afb06e87ff

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UISlidingController_Example' do
+  pod 'UISlidingController', :path => '../'
+
+  target 'UISlidingController_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end

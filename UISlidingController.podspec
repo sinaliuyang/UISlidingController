@@ -30,7 +30,7 @@ TODO: UISlidingController pod Use.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'UISlidingController/Classes/**/*'
+  s.source_files = 'UISlidingController/Classes/*.swift'
   
   # s.resource_bundles = {
   #   'UISlidingController' => ['UISlidingController/Assets/*.png']

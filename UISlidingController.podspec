@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UISlidingController'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'UISlidingController pod Use.'
 
 # This description is used to generate tags and improve search results.
@@ -29,6 +29,8 @@ TODO: UISlidingController pod Use.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
+  
+  s.swift_version = "3.0"
 
   s.source_files = 'UISlidingController/Classes/*.swift'
   

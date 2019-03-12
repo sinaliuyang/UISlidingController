@@ -136,12 +136,12 @@ extension SlidingViewController {
         view.addSubview(separateLine)
         view.addSubview(contentView)
         titleView.addSubview(slider)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     fileprivate func postIndexChangedNotification() {
-        NotificationCenter.default.post(name: .topBarControllerDidChangeIndex, object: children[currentIndex])
-        NotificationCenter.default.post(name: .topBarControllerDidChangeToIndex, object: children[currentIndex], userInfo: ["index": currentIndex])
+        NotificationCenter.default.post(name: .topBarControllerDidChangeIndex, object: childViewControllers[currentIndex])
+        NotificationCenter.default.post(name: .topBarControllerDidChangeToIndex, object: childViewControllers[currentIndex], userInfo: ["index": currentIndex])
     }
 }
 
@@ -151,14 +151,14 @@ extension SlidingViewController {
     fileprivate func addTitles() {
         _ = titleItemArray.map { $0.removeFromSuperview() }
         titleItemArray.removeAll()
-        if children.count == 0 {
+        if childViewControllers.count == 0 {
             slider.isHidden = true
             return
         }
         slider.isHidden = !topBar.isHasSlider
         var lastX: CGFloat = 0
-        for i in 0..<children.count {
-            let title = children[i].title ?? ""
+        for i in 0..<childViewControllers.count {
+            let title = childViewControllers[i].title ?? ""
             
             let x = lastX
             let y: CGFloat = 0
@@ -167,7 +167,7 @@ extension SlidingViewController {
             if topBar.isScrollEnable {
                 width = CGFloat(Int(title.width(font: topBar.item.normalFont, maxHeight: height) + topBar.itemSpace * 2))
             }else {
-                width = view.frame.size.width / CGFloat(children.count)
+                width = view.frame.size.width / CGFloat(childViewControllers.count)
             }
             width += 1
             let label = SlidingTopLabel(frame: CGRect(x: x, y: y, width: width, height: height))
@@ -194,7 +194,7 @@ extension SlidingViewController {
             }
         }
         titleView.contentSize = CGSize(width: lastX, height: topBar.height)
-        titleView.bringSubviewToFront(slider)
+        titleView.bringSubview(toFront: slider)
     }
     
     fileprivate func resetTilteItem(at index: Int, offset: CGFloat) {
@@ -282,7 +282,7 @@ extension SlidingViewController {
 //MARK: - CollectionView datasource
 extension SlidingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.children.count
+        return self.childViewControllers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -292,7 +292,7 @@ extension SlidingViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let view = children[indexPath.row].view
+        let view = childViewControllers[indexPath.row].view
         cell.contentView.addSubview(view!)
         view?.frame = cell.bounds
     }
@@ -338,7 +338,7 @@ extension SlidingViewController {
     /// 自定义方法
     func scrollViewDidEndScroll(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        guard index <= children.count else { return }
+        guard index <= childViewControllers.count else { return }
         if index != currentIndex {
             currentIndex = index
         }

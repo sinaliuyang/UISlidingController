@@ -30,7 +30,7 @@ TODO: UISlidingController pod Use.
 
   s.ios.deployment_target = '9.0'
   
-  s.swift_version = "4.2"
+  s.swift_version = "3.0"
 
   s.source_files = 'UISlidingController/Classes/*.swift'
   

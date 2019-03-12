@@ -13,7 +13,7 @@ import UIKit
 extension String {
     
     func rect(font: UIFont, estimatedSize size: CGSize, drawingOption option: NSStringDrawingOptions = NSStringDrawingOptions.usesLineFragmentOrigin) -> CGRect {
-        let attributes = [NSAttributedString.Key.font: font]
+        let attributes = [NSAttributedStringKey.font: font]//[NSAttributedString.Key.font: font]
         let rect:CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
         return rect;
     }
